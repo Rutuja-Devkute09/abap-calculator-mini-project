@@ -1,0 +1,26 @@
+REPORT ZCALCULATOR_RADIO.
+PARAMETERS: P_NUM1 TYPE I,
+            P_NUM2 TYPE I,
+            R_ADD RADIOBUTTON GROUP G1 DEFAULT 'X',
+            R_SUB RADIOBUTTON GROUP G1,
+            R_MUL RADIOBUTTON GROUP G1,
+            R_DIV RADIOBUTTON GROUP G1.
+DATA: LV_RES TYPE I.
+
+IF R_ADD = 'X'.
+  LV_RES = P_NUM1  +   P_NUM2.
+
+ELSEIF R_SUB = 'X'.
+  LV_RES = P_NUM1  - P_NUM2.
+
+ELSEIF R_MUL = 'X'.
+   LV_RES = P_NUM1  * P_NUM2.
+
+ELSEIF R_DIV = 'X'.
+   LV_RES = P_NUM1  /  P_NUM2.
+
+ELSE.
+WRITE: 'division by zero is not allowed'.
+
+EXIT.
+ENDIF.
